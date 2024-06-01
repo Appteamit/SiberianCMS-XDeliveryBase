@@ -74,7 +74,7 @@ class Xdelivery_Model_Db_Table_Carts extends Core_Model_Db_Table {
            
             $select->where("main.value_id = ?", $value_id);
             $select->where("p.is_active != ?", 2);
-          
+            // dd($this->_db->fetchAll($select));
           return $this->toModelClass($this->_db->fetchAll($select));
     }
 

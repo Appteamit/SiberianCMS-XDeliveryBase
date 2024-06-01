@@ -22,6 +22,10 @@ class Xdelivery_Model_Utility extends Core_Model_Default {
     // }
 
 	static public function displayPrice($price, $currency, $decimals = 2, $decimalpoint = '.', $seperator = ',', $currency_positions = 'left') {
+		if ($decimals>2) {
+			$decimals=2; //Always set display decimals upto 2
+		}
+		
 		$formattedPrice = number_format(round($price, $decimals), $decimals, $decimalpoint, $seperator);
 	
 		if ($currency_positions == 'left') {

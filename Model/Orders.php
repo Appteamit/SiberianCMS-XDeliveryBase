@@ -64,6 +64,14 @@ class Xdelivery_Model_Orders extends Core_Model_Default
     {
         return $this->getTable()->findAllOrderByCustomerId($customer_id, $params);
     }
+    /**     
+     * @param array
+     * @return Xdelivery_Model_Orders[]
+     */
+    public function findAllOrder($params = [])
+    {
+        return $this->getTable()->findAllOrder($params);
+    }
 
     /**
      * @param $valuesId

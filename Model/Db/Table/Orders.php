@@ -82,6 +82,7 @@ class Xdelivery_Model_Db_Table_Orders extends Core_Model_Db_Table {
                 "total_amount",
                 "paid_amount",
                 "notes",
+                "is_managed",
                 "delivery_date",
                 "delivery_time",
                 "delivery_method_id",
@@ -113,6 +114,66 @@ class Xdelivery_Model_Db_Table_Orders extends Core_Model_Db_Table {
         return $this->toModelClass($this->_db->fetchAll($select));
        
     }
+     /**
+     * @param $value_id, days_range, order_status     
+     * @return array
+     */
+    public function findAllOrder($params = []) {
+      $value_id=$params['value_id'];
+        $select = $this->_db->select()
+            ->from(['main' => $this->_name], [
+                "id as order_id",
+                "store_id",
+                "customer_id",
+                "order_number",       
+                "sub_amount",
+                "total_tax",
+                "delivery_cost",
+                "discount_amount",
+                "tips_amount",
+                "total_amount",
+                "paid_amount",
+                "notes",
+                "delivery_date",
+                "delivery_time",
+                "delivery_method_id",
+                "delivery_method",
+                "customer_firstname",
+                "customer_lastname",
+                "customer_email",
+                "customer_street",
+                "is_managed",
+                "customer_postcode",
+                "customer_city",
+                "customer_phone",
+                "customer_info",
+                "total_qty",
+                "status as order_status",
+                "is_return_request",
+                "created_at"
+            ]);
+
+          $select->joinLeft(['txn' => 'xdelivery_order_transactions'], 'txn.order_id = main.id', ['txn.transaction_id', 'txn.payment_method_id', 'txn.payment_method', 'txn.status as payment_status']);
+
+          $select->joinLeft(['pm' => 'xdelivery_payment_method'], 'pm.id = txn.payment_method_id', ['pm.method_type', 'pm.label_name']);
+
+          $select->joinLeft(['s' => 'xdelivery_store'], 's.store_id = main.store_id', ['s.store_name', 's.store_phone', 's.store_email', 's.store_city', 's.store_address', 's.store_zip']);
+
+          $select->order('main.id DESC');
+
+          if (array_key_exists("order_status",$params) && $params['order_status']!='all') {
+            $select->where("main.status = ?", $params['order_status']);  
+          }
+          if (array_key_exists("days_range",$params) && $params['days_range']) {
+            // Calculate the date x days ago
+            $daysAgo = date('Y-m-d', strtotime('-' . $params['days_range'] . ' days'));        
+            $select->where("DATE(main.created_at) >= ?", $daysAgo);
+        }        
+          $select->where("main.value_id = ?", $value_id);  
+
+        return $this->toModelClass($this->_db->fetchAll($select));
+       
+    }
 
      /**
      * @param $value_id
@@ -133,6 +194,7 @@ class Xdelivery_Model_Db_Table_Orders extends Core_Model_Db_Table {
                 "total_amount",
                 "paid_amount",
                 "notes",
+                "is_managed",
                 "delivery_date",
                 "delivery_time",
                 "delivery_method_id",

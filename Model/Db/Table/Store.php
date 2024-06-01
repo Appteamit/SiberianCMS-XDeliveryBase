@@ -70,6 +70,7 @@ class xdelivery_Model_Db_Table_Store extends Core_Model_Db_Table {
      */
     public function countAllForApp($value_id, $params = [])
     {
+        // dd($value_id, $params);
         $select =$this->_db->select()
             ->from(['main' => $this->_name], [ 
             	 'COUNT(main.store_id)'
@@ -85,6 +86,11 @@ class xdelivery_Model_Db_Table_Store extends Core_Model_Db_Table {
         return $this->_db->fetchCol($select);
     }
 
-
+    public function findAll($valueIds=[]){        
+        $value_id=$valueIds['value_id'];
+        $is_active=$valueIds['is_active'];
+        $select = "SELECT * FROM xdelivery_store WHERE value_id=$value_id AND is_active!=2";
+        return $this->_db->fetchAll($select);
+    }
 
 }

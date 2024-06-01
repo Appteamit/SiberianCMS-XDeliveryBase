@@ -24,13 +24,16 @@ class Xdelivery_Model_Store extends Core_Model_Default {
     }
 
     /**
-     * @param $valuesId
-     * @param array $params
+     * @param $valuesId     
      * @return Xdelivery_Model_Store[]
      */
+    public function findAll($valuesId=[])
+    {
+        return $this->getTable()->findAll($valuesId);
+    }
     public function countAllForApp($valuesId, $params = [])
     {
-        return $this->getTable()->countAllForApp($valuesId, $params);
+        return $this->getTable()->countAllForApp($valuesId, $params = []);
     }
    
 }

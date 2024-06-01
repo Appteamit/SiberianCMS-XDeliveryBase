@@ -31,5 +31,13 @@ class Xdelivery_Model_Coupons extends Core_Model_Default {
     {
         return $this->getTable()->countAllForApp($valuesId, $params);
     }
+    /**
+     * @param $value_id
+     * @return []
+     */
+    public function findAll($value_id=0)
+    {
+        return $this->getTable()->findAll($value_id);
+    }
 
 }

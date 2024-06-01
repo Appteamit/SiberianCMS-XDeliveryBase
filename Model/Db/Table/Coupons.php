@@ -75,5 +75,8 @@ class Xdelivery_Model_Db_Table_Coupons extends Core_Model_Db_Table {
  
         return $this->_db->fetchCol($select);
     }
-
+    public function findAll($value_id=0){        
+        $select = "SELECT * FROM `xdelivery_coupon` WHERE  value_id=$value_id AND `is_delete`=0;";
+        return $this->_db->fetchAll($select);
+    }
 }

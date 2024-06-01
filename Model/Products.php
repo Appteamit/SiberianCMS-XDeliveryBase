@@ -36,6 +36,10 @@ class Xdelivery_Model_Products extends Core_Model_Default
     {
         return $this->getTable()->findAppByValueId($valuesId, $params);
     }
+    public function getProducts($valuesId, $params = [])
+    {
+        return $this->getTable()->getProducts($valuesId, $params);
+    }
 
 
    /**
