@@ -7,6 +7,10 @@
             <span><?php  //echo p__("xdelivery", "Dashboard"); ?></span>
         </a>
  -->
+        <a  class="<?php echo $currentLink == 'xdeliverystats' || $currentLink=='xdeliveryorderstats' || $currentLink=='xdeliveryproductstats' || $currentLink=='xdeliverycustomerstats' || $currentLink=='xdeliverycouponsstats' || $currentLink=='xdeliverytaxasstats' ? 'active' : ''; ?>" href="/xdelivery/stats/sales">
+            <i class="fa fa-area-chart" aria-hidden="true"></i><br>
+            <span><?php  echo p__("xdelivery", "Reports"); ?></span>
+        </a>
          <a  class="<?php echo $currentLink == 'xdeliverystore' ? 'active' : ''; ?>" href="/xdelivery/store/list">
             <i class="fa fa-map-marker" aria-hidden="true"></i><br>
             <span><?php  echo p__("xdelivery", "Stores"); ?></span>

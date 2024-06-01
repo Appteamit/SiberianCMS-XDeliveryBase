@@ -3,7 +3,7 @@
     $parentCategory = $this->getParentCategory();
     $value_id = (new Xdelivery_Model_Xdelivery())->getCurrentValueId();
     $attributes = (new Xdelivery_Model_Attribute())->findAll(['value_id' => $value_id, "is_active" => 1], 'position ASC')->toArray();
-    $taxes = (new Xdelivery_Model_Tax())->findAll(['value_id' => $value_id , 'status != ?' => 'deleted'])->toArray();
+    $taxes = (new Xdelivery_Model_Tax())->findAll($value_id);
     $categories = (new Xdelivery_Model_Category())->getCategorySubCategory($value_id); 
     $product_categories = $this->getProductCategory();
     $productattrObj = $this->getProductAttributes();
@@ -50,7 +50,7 @@
     }
 
     $brands = (new Xdelivery_Model_Brand())->findByValueId($value_id, ['is_active' => 1])->toArray();
-    $stores = (new Xdelivery_Model_Store())->findAll(['value_id' => $value_id, 'is_active' => 1, ])->toArray();
+    $stores = (new Xdelivery_Model_Store())->findAll(['value_id' => $value_id, 'is_active' => 1 ]);
  ?>
 
 <div class="third-main-panel">

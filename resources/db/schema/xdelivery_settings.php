@@ -72,9 +72,9 @@ $schemas['xdelivery_settings'] = [
         'is_null' => false,
         'default' => "1"
     ],
-    'discount_tax_calculation' => [
-        'type' => 'int(11)',
-        'is_null' => true,
+    'enable_print_customer_details' => [
+        'type' => 'int(255)',
+        'is_null' => false,
         'default' => "1"
     ],
     'max_order_value' => [
@@ -197,6 +197,11 @@ $schemas['xdelivery_settings'] = [
         'is_null' => true,
         'default' => "1"
     ],
+    'discount_tax_calculation' => [
+        'type' => 'int(11)',
+        'is_null' => true,
+        'default' => "1"
+    ],
     'time_format' => [
         'type' => 'varchar(50)',
         'is_null' => true,
@@ -289,7 +294,50 @@ $schemas['xdelivery_settings'] = [
         'type' => 'varchar(50)',
         'is_null' => true,
         'default' => 0
-    ],    
+    ],
+    'is_enable_email' => [
+        'type' => 'tinyint(11)',
+        'default' => "0",
+        'is_null' => true,
+    ],
+    'is_enable_sms' => [
+        'type' => 'tinyint(11)',
+        'default' => "0",
+        'is_null' => true,
+    ],
+    'twillio_auth_token' => [
+        'type' => 'varchar(100)',
+        'is_null' => true,
+        'charset' => 'utf8',
+        'collation' => 'utf8_unicode_ci'
+    ],
+    'twillio_sid' => [
+        'type' => 'varchar(100)',
+        'is_null' => true,
+        'charset' => 'utf8',
+        'collation' => 'utf8_unicode_ci'
+    ],
+    'twillio_sim_id' => [
+        'type' => 'varchar(100)',
+        'is_null' => true,
+        'charset' => 'utf8',
+        'collation' => 'utf8_unicode_ci'
+    ],
+    'is_enable_whatsender' => [
+        'type' => 'tinyint(11)',
+        'default' => "0",
+        'is_null' => true,
+    ], 
+    'send_to_admin' => [
+        'type' => 'tinyint(11)',
+        'default' => "0",
+        'is_null' => true,
+    ], 
+    'send_to_customer' => [
+        'type' => 'tinyint(11)',
+        'default' => "0",
+        'is_null' => true,
+    ], 
     'created_at' => [
         'type' => 'datetime',
     ],

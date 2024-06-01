@@ -447,5 +447,82 @@
             <content name="setCurrentLink"><code>xdeliveryreports</code></content>
         </actions>
     </xdelivery_reports_list>
-    
+    <xdelivery_stats_sales>
+        <addLayout name="admin_menu" />
+        <addLayout name="customization_default" />
+        <base>
+            <title>Sales</title>
+        </base>
+        <views>
+            <content class="admin_view_default" template="xdelivery/stats/sales.phtml" />
+        </views>
+        <actions>
+            <content name="setCurrentLink"><code>xdeliverystats</code></content>
+        </actions>        
+    </xdelivery_stats_sales>
+    <xdelivery_stats_orders>
+        <addLayout name="admin_menu" />
+        <addLayout name="customization_default" />
+        <base>
+            <title>Orders</title>
+        </base>
+        <views>
+            <content class="admin_view_default" template="xdelivery/stats/order.phtml" />
+        </views>
+        <actions>
+            <content name="setCurrentLink"><code>xdeliveryorderstats</code></content>
+        </actions>        
+    </xdelivery_stats_orders>    
+    <xdelivery_stats_products>
+        <addLayout name="admin_menu" />
+        <addLayout name="customization_default" />
+        <base>
+            <title>Products</title>
+        </base>
+        <views>
+            <content class="admin_view_default" template="xdelivery/stats/product.phtml" />
+        </views>
+        <actions>
+            <content name="setCurrentLink"><code>xdeliveryproductstats</code></content>
+        </actions>        
+    </xdelivery_stats_products>    
+    <xdelivery_stats_customers>
+        <addLayout name="admin_menu" />
+        <addLayout name="customization_default" />
+        <base>
+            <title>Customers</title>
+        </base>
+        <views>
+            <content class="admin_view_default" template="xdelivery/stats/customer.phtml" />
+        </views>
+        <actions>
+            <content name="setCurrentLink"><code>xdeliverycustomerstats</code></content>
+        </actions>        
+    </xdelivery_stats_customers>    
+    <xdelivery_stats_coupons>
+        <addLayout name="admin_menu" />
+        <addLayout name="customization_default" />
+        <base>
+            <title>Coupons</title>
+        </base>
+        <views>
+            <content class="admin_view_default" template="xdelivery/stats/coupons.phtml" />
+        </views>
+        <actions>
+            <content name="setCurrentLink"><code>xdeliverycouponsstats</code></content>
+        </actions>        
+    </xdelivery_stats_coupons>    
+    <xdelivery_stats_taxes>
+        <addLayout name="admin_menu" />
+        <addLayout name="customization_default" />
+        <base>
+            <title>Taxes</title>
+        </base>
+        <views>
+            <content class="admin_view_default" template="xdelivery/stats/taxas.phtml" />
+        </views>
+        <actions>
+            <content name="setCurrentLink"><code>xdeliverytaxasstats</code></content>
+        </actions>        
+    </xdelivery_stats_taxes>    
 </layout>

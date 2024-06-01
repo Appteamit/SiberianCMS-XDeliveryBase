@@ -210,6 +210,11 @@ $schemas['xdelivery_orders'] = [
         'is_null' => true,
         'default' => 0
     ],
+    'is_managed' => [
+        'type' => 'int (11)',
+        'is_null' => true,
+        'default' => 0
+    ],
     'tracking_number_url' => [
         'type' => 'text',
         'is_null' => true,
